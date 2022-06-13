@@ -6,7 +6,7 @@ public class SettingsSingleton {
 
     private SettingsSingleton() {}
 
-    public static SettingsSingleton getInstance() {
+    public static synchronized SettingsSingleton getInstance() {
         if(singleton == null) {
             singleton = new SettingsSingleton();
         }

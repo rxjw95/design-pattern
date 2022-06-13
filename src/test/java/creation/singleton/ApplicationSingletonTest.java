@@ -21,6 +21,14 @@ class ApplicationSingletonTest {
         SettingsSingleton settingsSingleton2 = SettingsSingleton.getInstance();
 
         assertSame(settingsSingleton1, settingsSingleton2);
-
     }
+
+    @Test
+    void synchronizedSingletonInstanceTest() {
+        SettingsSingleton settingsSingleton1 = SettingsSingleton.getInstance();
+        SettingsSingleton settingsSingleton2 = SettingsSingleton.getInstance();
+
+        assertSame(settingsSingleton1, settingsSingleton2);
+    }
+
 }

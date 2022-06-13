@@ -2,11 +2,18 @@ package creation.singleton;
 
 public class SettingsSingleton {
 
-    private static final SettingsSingleton singleton = new SettingsSingleton();
+    private static volatile SettingsSingleton singleton;
 
     private SettingsSingleton() {}
 
-    public static synchronized SettingsSingleton getInstance() {
+    public static SettingsSingleton getInstance() {
+        if(singleton == null) {
+            synchronized (SettingsSingleton.class) {
+                if(singleton == null) {
+                    singleton = new SettingsSingleton();
+                }
+            }
+        }
         return singleton;
     }
 }

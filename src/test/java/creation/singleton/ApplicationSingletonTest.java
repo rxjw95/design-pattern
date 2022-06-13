@@ -39,4 +39,13 @@ class ApplicationSingletonTest {
         assertSame(settingsSingleton1, settingsSingleton2);
     }
 
+    @Test
+    void doubleCheckSingletonInstanceTest() {
+        SettingsSingleton settingsSingleton1 = SettingsSingleton.getInstance();
+        SettingsSingleton settingsSingleton2 = SettingsSingleton.getInstance();
+
+        assertSame(settingsSingleton1, settingsSingleton2);
+    }
+
+    
 }

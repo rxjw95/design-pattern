@@ -60,4 +60,12 @@ class ApplicationSingletonTest {
 
         assertNotSame(instance, settingsSingleton);
     }
+
+    @Test
+    void enumSingletonTest() {
+        SettingsSingletonEnum singleton1 = SettingsSingletonEnum.SINGLETON;
+        SettingsSingletonEnum singleton2 = SettingsSingletonEnum.SINGLETON;
+
+        assertSame(singleton1, singleton2);
+    }
 }

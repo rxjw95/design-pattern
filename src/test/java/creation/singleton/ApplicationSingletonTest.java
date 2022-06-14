@@ -2,6 +2,9 @@ package creation.singleton;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -47,5 +50,14 @@ class ApplicationSingletonTest {
         assertSame(settingsSingleton1, settingsSingleton2);
     }
 
-    
+    @Test
+    void breakSingletonTest() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        SettingsSingleton instance = SettingsSingleton.getInstance();
+
+        Constructor<SettingsSingleton> constructor = SettingsSingleton.class.getDeclaredConstructor();
+        constructor.setAccessible(true);
+        SettingsSingleton settingsSingleton = constructor.newInstance();
+
+        assertNotSame(instance, settingsSingleton);
+    }
 }

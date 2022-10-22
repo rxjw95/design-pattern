@@ -6,7 +6,10 @@ public abstract class CaffeineBeverage {
         boilWater();
         brew();     // 서브클래스에서 구체화
         pourInCup();// 서브클래스에서 구체화
-        addCondiments();
+
+        if(customerWantsCondiments()) {
+            addCondiments();
+        }
     }
 
     abstract protected void brew();
@@ -19,4 +22,9 @@ public abstract class CaffeineBeverage {
     private void pourInCup() {
         System.out.println("Pouring into cup");
     }
+
+    private boolean customerWantsCondiments() {
+        return true;
+    }
+
 }

@@ -1,7 +1,7 @@
 package structure.proxy.after;
 
 public class OrderProxyLazyLoad implements Orderable{
-    private Order order;    // 프록시 생성시 원본은 초기화하지 않음
+    private Orderable order;    // 프록시 생성시 원본은 초기화하지 않음
 
     @Override
     public synchronized void insert(String product) {

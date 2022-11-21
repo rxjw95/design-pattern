@@ -1,10 +1,10 @@
 package structure.proxy.after;
 
 public class OrderProxy implements Orderable{
-    private final Order order;
+    private final Orderable order;
 
 
-    public OrderProxy(Order order) {
+    public OrderProxy(Orderable order) {
         this.order = order;
     }
 
